@@ -105,6 +105,7 @@ package("libsdl")
         component:add("links", "SDL2main" .. libsuffix)
         if package:is_plat("windows") then
             component:add("syslinks", "shell32")
+            component:add("ldflags", "-subsystem:windows")
         elseif package:is_plat("mingw") then
             component:add("syslinks", "mingw32")
         end
