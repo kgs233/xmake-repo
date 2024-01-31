@@ -108,6 +108,14 @@ package("libsdl")
         elseif package:is_plat("mingw") then
             component:add("syslinks", "mingw32")
         end
+        
+        if package:get("toolchain") == "clang-cl" then
+            component:add("ldflags", "-subsystem:windows")
+        end
+
+        if package:is_toolchain("mingw") then
+            component:add("ldflags", "-mwindows")
+        end
         component:add("deps", "lib")
     end)
 
