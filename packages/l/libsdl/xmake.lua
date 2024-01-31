@@ -109,7 +109,7 @@ package("libsdl")
             component:add("syslinks", "mingw32")
         end
         
-        if package:get("toolchain") == "clang-cl" then
+        if package:get("toolchains") == "clang-cl" or  package:get("toolchains") == "msvc" then
             component:add("ldflags", "-subsystem:windows")
         end
 
